@@ -5,7 +5,90 @@
 {% block title  %} Formulario - Agregar Neoprenos {% endblock title  %}
 
 {% block main  %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Carga</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color:rgb(246, 245, 243);
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
 
+        .form-container {
+            background: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .form-container h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            text-align: center;
+            color: #333;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #555;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            background-color: #f9f9f9;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #4a90e2;
+            background-color: #fff;
+        }
+
+        .form-group button {
+            width: 100%;
+            padding: 12px;
+            font-size: 16px;
+            font-weight: bold;
+            color: #fff;
+            background-color: #4a90e2;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .form-group button:hover {
+            background-color: #357abd;
+        }
+
+        .form-group small {
+            display: block;
+            margin-top: 5px;
+            color: #888;
+            font-size: 12px;
+        }
+    </style>
+</head>
 <body>
     <p></p>
     <p> VAMOS A INGRESAR UN NUEVO PRODUCTO</p>

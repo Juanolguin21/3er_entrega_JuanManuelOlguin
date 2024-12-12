@@ -1,0 +1,40 @@
+{% extends "Neoprenos/base.html" %}
+
+{% load static %}
+
+{% block main  %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Búsqueda de Productos</title>
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center">Buscar Marca de Trajes</h1>
+        <form method="GET" action="">
+            <div class="mb-3">
+                {{ form.query }}
+            </div>
+            <button type="submit" class="btn btn-primary">Buscar</button>
+        </form>
+
+        {% if resultados is not None %}
+        <h2 class="mt-4">Resultados:</h2>
+        {% if resultados %}
+            <ul class="list-group">
+                {% for producto in resultados %}
+                    <li class="list-group-item">
+                        <strong>MARCA : </strong>{{ producto.marca }} <strong>MODELO: </strong>{{ producto.modelo }}
+                        <p><strong> MEDIDA :</strong>{{ producto.serie }} , <strong>TIPO :</strong>{{ producto.tipo}}</p> 
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p class="mt-4 text-danger">No se encontraron productos.</p>
+        {% endif %}
+        {% endif %}
+    </div>
+</body>
+<p>
+</p>
+{% endblock main  %}

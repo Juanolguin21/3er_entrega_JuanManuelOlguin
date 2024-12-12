@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from Neoprenos.models import neoprenos
+from .forms import BuscarProductoForm
 
 # Create your views here.
 def inicio(request): 
@@ -21,9 +22,6 @@ def contacto(request):
 def sucursales(request): 
     return render (request, "Neoprenos/sucursales.html")
 
-def neoprenos_formulario(request): 
-    return render (request, "Neoprenos/neoprenos_formulario.html")
-
 
 def neoprenos_Formulario(request):
       if request.method == 'POST':
@@ -35,3 +33,15 @@ def neoprenos_Formulario(request):
             return render(request, "Neoprenos/inicio.html")
  
       return render(request,"Neoprenos/neoprenos_Formulario.html")
+  
+def buscar_producto(request):
+    form = BuscarProductoForm()
+    resultados = None
+
+    if 'query' in request.GET:
+        form = BuscarProductoForm(request.GET)
+        if form.is_valid():
+            query = form.cleaned_data['query']
+            resultados = neoprenos.objects.filter(marca__icontains=query)
+
+    return render(request, 'Neoprenos/buscar_producto.html', {'form': form, 'resultados': resultados})

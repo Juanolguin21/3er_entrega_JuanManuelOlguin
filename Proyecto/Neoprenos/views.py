@@ -8,11 +8,14 @@ def inicio(request):
 def trajes(request): 
     return render (request, "Neoprenos/trajes.html")
 
-def loguin(request): 
-    return render (request, "Neoprenos/loguin.html")
+def login(request): 
+    return render (request, "Neoprenos/login.html")
 
-def pedidos(request): 
-    return render (request, "Neoprenos/pedidos.html")
+def tienda(request): 
+    return render (request, "Neoprenos/tienda.html")
+
+def contacto(request): 
+    return render (request, "Neoprenos/contacto.html")
 
 def sucursales(request): 
     return render (request, "Neoprenos/sucursales.html")

@@ -5,8 +5,8 @@ from Neoprenos import views
 urlpatterns = [
       path('inicio/', views.inicio),
       path('trajes/', views.trajes),
-      path('loguin/', views.loguin),
-      path('pedidos/', views.pedidos),
+      path('login/', views.login),
+      path('tienda/', views.tienda),
+      path('contacto/', views.contacto),
       path('sucursales/', views.sucursales)
-     
 ]

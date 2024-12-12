@@ -1,13 +1,106 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trajes</title>
-    <link rel="stylesheet" href="styles.css"/>
-</head>
-<body style="background-color: blue">
+{% extends "Neoprenos/base.html" %}
 
-</body>
-</html>
+{% load static %}
+
+{% block main  %}
+
+<section class="page-section" id="services">
+    <div class="container px-4 px-lg-5">
+        <h2 class="text-center mt-0">Sucursales</h2>
+        <hr class="divider" />
+        <div class="row gx-4 gx-lg-5">
+            <div class="col-lg-3 col-md-6 text-center">
+                <div class="mt-5">
+                    <div class="mb-2"><i class="bi bi-geo-alt-fill"></i></div>
+                    <h3 class="h4 mb-2">San Isidro</h3>
+                    <p class="text-muted mb-0">Bernardo de Yrigoyen 2647</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 text-center">
+                <div class="mt-5">
+                    <div class="mb-2"><i class="bi bi-geo-alt-fill"></i></div>
+                    <h3 class="h4 mb-2">Palermo Soho</h3>
+                    <p class="text-muted mb-0">Arenales 3360</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 text-center">
+                <div class="mt-5">
+                    <div class="mb-2"><i class="bi bi-geo-alt-fill"></i></div>
+                    <h3 class="h4 mb-2">Chacarita</h3>
+                    <p class="text-muted mb-0">Av Corrientes 3247</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 text-center">
+                <div class="mt-5">
+                    <div class="mb-2"><i class="bi bi-geo-alt-fill"></i></div>
+                    <h3 class="h4 mb-2">Las Lomitas</h3>
+                    <p class="text-muted mb-0">Atlantida Argentina 801</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<div id="portfolio">
+    <div class="container-fluid p-0">
+        <div class="row g-0">
+            <div class="col-lg-4 col-sm-6">
+                <a class="portfolio-box" href="{% static '/Neoprenos/assets/img/portfolio/fullsize/44.jpg' %}" title="Billabong">
+                    <img class="img-fluid" src=" {% static '/Neoprenos/assets/img/portfolio/thumbnails/44.jpg' %}" alt="..." />
+                    <div class="portfolio-box-caption">
+                        <div class="project-category text-white-50">Trajes Australianos</div>
+                        <div class="project-name">Billabong</div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-lg-4 col-sm-6">
+                <a class="portfolio-box" href="{% static '/Neoprenos/assets/img/portfolio/fullsize/22.jpg' %}" title="Rip curl">
+                    <img class="img-fluid" src=" {% static '/Neoprenos/assets/img/portfolio/thumbnails/22.jpg' %}" alt="..." />
+                    <div class="portfolio-box-caption">
+                        <div class="project-category text-white-50">Trajes Indoneses</div>
+                        <div class="project-name">Rip Curl</div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-lg-4 col-sm-6">
+                <a class="portfolio-box" href="{% static '/Neoprenos/assets/img/portfolio/fullsize/55.jpg' %}" title="Oneill">
+                    <img class="img-fluid" src=" {% static '/Neoprenos/assets/img/portfolio/thumbnails/55.jpg' %}" alt="..." />
+                    <div class="portfolio-box-caption">
+                        <div class="project-category text-white-50">Trajes Americanos</div>
+                        <div class="project-name">Oneill</div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-lg-4 col-sm-6">
+                <a class="portfolio-box" href="{% static '/Neoprenos/assets/img/portfolio/fullsize/11.jpg' %}" title="Xcel">
+                    <img class="img-fluid" src=" {% static '/Neoprenos/assets/img/portfolio/thumbnails/11.jpg' %}" alt="..." />
+                    <div class="portfolio-box-caption">
+                        <div class="project-category text-white-50">Trajes Argentinos</div>
+                        <div class="project-name">Xcel</div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-lg-4 col-sm-6">
+                <a class="portfolio-box" href="{% static '/Neoprenos/assets/img/portfolio/fullsize/33.jpg' %}" title="QuickSilver">
+                    <img class="img-fluid" src=" {% static '/Neoprenos/assets/img/portfolio/thumbnails/33.jpg' %}" alt="..." />
+                    <div class="portfolio-box-caption">
+                        <div class="project-category text-white-50">Trajes Indoneses</div>
+                        <div class="project-name">QuickSilver</div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-lg-4 col-sm-6">
+                <a class="portfolio-box" href="{% static '/Neoprenos/assets/img/portfolio/fullsize/66.jpg' %}" title="Mormaii">
+                    <img class="img-fluid" src=" {% static '/Neoprenos/assets/img/portfolio/thumbnails/66.jpg' %}" alt="..." />
+                    <div class="portfolio-box-caption p-3">
+                        <div class="project-category text-white-50">Trajes Brasileros</div>
+                        <div class="project-name">Mormaii</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock main  %}

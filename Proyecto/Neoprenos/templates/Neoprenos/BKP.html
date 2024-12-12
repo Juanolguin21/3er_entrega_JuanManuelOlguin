@@ -29,10 +29,11 @@
                 <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto my-2 my-lg-0">
-                        <li class="nav-item"><a class="nav-link" href="#about">Tienda</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#services">Sucursales</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#portfolio">Login</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#contact">Contacto</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'Tienda' %}">Tienda</a></li>                       
+                        <li class="nav-item"><a class="nav-link" href="{% url 'Trajes' %}">Trajes</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'Sucursales' %}">Sucursales</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'Contacto' %}">Contacto</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'Login' %}">Login</a></li>
                     </ul>
                 </div>
             </div>

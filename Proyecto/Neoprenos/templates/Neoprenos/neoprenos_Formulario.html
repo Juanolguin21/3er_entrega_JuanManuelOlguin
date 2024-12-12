@@ -1,0 +1,25 @@
+{% extends "Neoprenos/base.html" %}
+
+{% load static %}
+
+{% block title  %} Formulario - Agregar Neoprenos {% endblock title  %}
+
+{% block main  %}
+
+<body>
+    <p></p>
+    <p> VAMOS A INGRESAR UN NUEVO PRODUCTO</p>
+    <form action="/Neoprenos/neoprenos-Formulario/"  method="POST">
+        {% csrf_token %} 
+        <p> Marca: <input type = "text" name="marca"></p>
+        <p> Modelo: <input type = "text" name="modelo"></p>
+        <p> Medida - Grosor - : <input type = "number" name="serie">
+        <p> Tipo - largo o corto - : <input type = "text" name="tipo"></p>
+        
+        <input type = "submit" value="Enviar"></p>
+     </form>   
+</body>
+</html>
+
+
+{% endblock main  %}

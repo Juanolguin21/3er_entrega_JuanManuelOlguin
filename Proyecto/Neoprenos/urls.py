@@ -2,6 +2,7 @@
 from django.urls import path
 from Neoprenos import views
 
+
 urlpatterns = [
       path('inicio/', views.inicio, name='Inicio'),
       path('trajes/', views.trajes,name='Trajes'),
@@ -10,3 +11,9 @@ urlpatterns = [
       path('contacto/', views.contacto,name='Contacto'),
       path('sucursales/', views.sucursales,name='Sucursales')
 ]
+
+forms_html= [
+    path('neoprenos-Formulario/', views.neoprenos_Formulario, name="neoprenosFormulario")
+]
+
+urlpatterns += forms_html

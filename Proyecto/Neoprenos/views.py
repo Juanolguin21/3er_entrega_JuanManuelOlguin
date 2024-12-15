@@ -22,8 +22,6 @@ def contacto(request):
 def sucursales(request): 
     return render (request, "Neoprenos/sucursales.html")
 
-def register(request): 
-    return render (request, "Neoprenos/register.html")
 
 
 def neoprenos_Formulario(request):

@@ -5,7 +5,26 @@
 {% block title  %} Formulario - Agregar Neoprenos {% endblock title  %}
 
 {% block main  %}
-
+<style>
+    .container1 {
+      background-color:rgb(206, 231, 248);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin: 0;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      border: 3px solid #ccc;
+      padding: 20px;
+      border-radius: 10px;
+    }
+  </style>
+  <div class="container1">
     <p></p>
     <p> VAMOS A INGRESAR UN NUEVO PRODUCTO</p>
     <form action="/Neoprenos/neoprenos-Formulario/"  method="POST">
@@ -17,7 +36,9 @@
         
         <input type = "submit" value="Enviar"></p>
      </form>   
-</body>
+     <p></p>
+    </div>
+    
 </html>
 
 

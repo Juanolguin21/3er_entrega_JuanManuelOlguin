@@ -33,7 +33,7 @@ Asegúrate de tener instalado:
    git clone https://github.com/Juanolguin21/3er_entrega_JuanManuelOlguin
    cd /Proyecto
 
-Acceso a Admin de Django
+Acceso a Admin de Django (solo visualizacion)
 
-Usuario: juanolguin
-Clave:   34519842
+Usuario: Profesor
+Clave:   12345678@A

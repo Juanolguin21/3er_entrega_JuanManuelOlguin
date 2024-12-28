@@ -4,6 +4,24 @@
 
 {% block main  %}
 
+<style>
+    .list-group-item {
+        display: flex;
+        justify-content:space-around;
+        background-color:orange;
+        padding: 15px;
+    }
+    .list-group1{
+        display: flex;
+        justify-content:space-around;
+        background-color:grey;
+        color:white;
+        padding: 5px;
+    }
+
+ 
+</style>
+
 <body>
     <div class="container mt-5">
         <h1 class="text-center">Buscar Marca de Trajes</h1>
@@ -11,19 +29,24 @@
             <div class="mb-3">
                 {{ form.query }}
             </div>
-            <button type="submit" class="btn btn-primary">Buscar</button>
+            <button type="submit" class="btn btn-primary">Buscar todo</button>
         </form>
 
         {% if resultados is not None %}
         <h2 class="mt-4">Resultados:</h2>
         {% if resultados %}
             <ul class="list-group">
-                {% for producto in resultados %}
                     <li class="list-group-item">
-                        <strong>MARCA : </strong>{{ producto.marca }} <strong>MODELO: </strong>{{ producto.modelo }}
-                        <p><strong> MEDIDA :</strong>{{ producto.serie }} , <strong>TIPO :</strong>{{ producto.tipo}}</p> 
+                        <strong>MARCA</strong><strong>MODELO</strong>
+                        <strong>MEDIDA</strong><strong>TIPO</strong>
                     </li>
-                {% endfor %}
+                    {% for producto in resultados %}
+                    <li class="list-group1">
+                        <span>{{producto.marca}}</span><span>{{producto.modelo}}</span>
+                        <span>{{producto.serie}}</span><span>{{producto.tipo}}</span> 
+                    </li>
+                   
+                    {% endfor %}
             </ul>
         {% else %}
             <p class="mt-4 text-danger">No se encontraron productos.</p>

@@ -54,7 +54,7 @@
     }
     
     .login__inputs p label {
-        color: var(--black);
+        color: var(--white);
         padding-bottom: 10px;
         padding-left: 10px;
         font-weight: 900;
@@ -85,23 +85,29 @@
         font-weight: 600;
         cursor: pointer;
         transition: all 0.3s linear;
-    }
+        }
     
     .login__inputs p button:hover {
-        box-shadow: 0px 0px 26px -5px var(--orange);
+        box-shadow: 0px 0px 26px -5px var(--black);
         transition: all 0.3s linear;
     }
     
     
     a {
-        text-decoration: none;
-        color: var(--gren);
+        
+        padding-bottom: 10px;
     }
-    
+
+    section {
+        background-color:grey;
+    }
+
+
    
   </style>
-    <p></p>
+    <section>
     <div class="container2">
+        <p>
          <div class="content2">
              <div class="login__inputs">
                  <p>
@@ -114,13 +120,14 @@
                  </p>
                  <p>
                      <a href="{% url 'Inicio' %}"><button type="submit"> INICIAR </button></a>
-                     <p></p>
-                     <a href="{% url 'Inicio' %}"><button type="submit"> No posees cuenta? Registrate..</button></a>
+        
+                     <a href="{% url 'Inicio' %}"><button type="submit"> REGISTRARSE </button></a>
                  </p>
              </div>
          </div>
+        </p>
      </div>
-     <p></p>
+    </section>
 
      
    

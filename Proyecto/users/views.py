@@ -4,6 +4,7 @@ from django.contrib.auth import login, authenticate
 from django.contrib import messages
 from users.forms import UserRegisterForm  
 
+
 def login_request(request):
     if request.method == 'POST':
         form = AuthenticationForm(request, data=request.POST)
@@ -46,3 +47,5 @@ def register(request):
       form = UserRegisterForm()     
 
       return render(request,"users/registro.html" ,  {"form":form, "msg_register":msg_register})
+  
+

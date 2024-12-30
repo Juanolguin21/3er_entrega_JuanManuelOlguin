@@ -36,7 +36,12 @@
                         <li class="nav-item"><a class="nav-link" href="{% url 'Contacto' %}">Contacto</a></li>
                         <li class="nav-item"><a style ="color : black;" class="nav-link" href="{% url 'buscar' %}">Buscar</a></li>
                         <li class="nav-item"><a style ="color : black;" class="nav-link" href="{% url 'neoprenosFormulario' %}">Carga</a></li>
+                        {% if not request.user.is_authenticated %}
                         <li class="nav-item"><a style ="color : black;" class="nav-link" href="{% url 'Login' %}">Login</a></li>
+                        {% else %}
+                        <li class="nav-item"><a style ="color : orange;" class="nav-link" href="#">{{ request.user.username }}</a></li>
+                        <li class="nav-item"><a style ="color : orange;" class="nav-link" href="{% url 'Logout' %}">Logout</a></li>
+                        {% endif %}
                     </ul>
                 </div>
             </div>

@@ -2,52 +2,70 @@
 
 {% load static %}
 
-{% block title  %} Formulario - Agregar Neoprenos {% endblock title  %}
+{% block title %} Formulario - Agregar Neoprenos {% endblock title %}
 
-{% block main  %}
+{% block main %}
 <style>
     .container1 {
-      background-color:grey;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      margin: 0;
+        background-color: white; 
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        margin: 0;
+        padding: 20px; 
     }
-    .2 {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: flex-start;
-      border: 3px solid white;
-      padding: 20px;
-      border-radius: 10px;
+    .form-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center; 
+        border: 3px solid orange; 
+        padding: 30px; 
+        border-radius: 10px;
+        background-color: #fff; 
+        width: 100%; 
+        max-width: 500px; 
     }
     p {
-      color:white;
+        color: black; 
     }
-    .juan{
-        color:bold black;
-        font-size:1.5rem;
-        font-family:impact;
+    .title {
+        color: black; 
+        font-size: 1.5rem; 
+        font-family: Impact, sans-serif; 
+        text-align: center; 
     }
-  </style>
-  <div class="container1">
-    <p></p>
-    <h1 class="juan"> INGRESAR NUEVO PRODUCTO AL STOCK</h1>
-    <form class="2" action="/Neoprenos/neoprenos-Formulario/"  method="POST">
-        {% csrf_token %} 
-        <p> Marca: <input type = "text" name="marca"></p>
-        <p> Modelo: <input type = "text" name="modelo"></p>
-        <p> Medida - Grosor - : <input type = "number" name="serie">
-        <p> Tipo - largo o corto - : <input type = "text" name="tipo"></p>
-        
-        <button type="submit" class="btn btn-primary">Cargar Producto</button>
-      </form>   
-     <p></p>
-    </div>
-    
-</html>
 
+</style>
 
-{% endblock main  %}
+<div class="container1">
+    <h1 class="title">INGRESAR NUEVO PRODUCTO AL STOCK</h1>
+    <form class="form-container" action="/Neoprenos/neoprenos-Formulario/" method="POST">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="marca" class="form-label">Marca:</label>
+            <input type="text" id="marca" name="marca" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label for="modelo" class="form-label">Modelo:</label>
+            <input type="text" id="modelo" name="modelo" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label for="serie" class="form-label">Medida - Grosor:</label>
+            <input type="number" id="serie" name="serie" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label for="tipo" class="form-label">Tipo - largo o corto:</label>
+            <input type="text" id="tipo" name="tipo" class="form-control" required>
+        </div>
+        <button type="submit" class="btn btn-primary" onclick="return confirmCarga();">Cargar Producto</button>
+        <script>
+            function confirmCarga() {
+                return confirm("Elemento por cargarse, click en aceptar para confirmar y ser redirigido al inicio!");
+            }
+        </script>
+    </form>   
+</div>
+
+{% endblock main %}

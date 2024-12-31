@@ -5,8 +5,9 @@ from .forms import BuscarProductoForm
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import neoprenos  # Asegúrate de importar tu modelo
+from .models import neoprenos  
 from .forms import AltaProductoForm, ModificacionProductoForm
+from django.contrib import messages
 
 
 
@@ -57,37 +58,25 @@ def buscar_producto(request):
     return render(request, 'Neoprenos/buscar_producto.html', {'form': form, 'resultados': resultados})
 
 
-# Vista para el Alta
-def alta_producto(request):
+@login_required
+def gestionar_Producto(request):
     if request.method == 'POST':
-        form = AltaProductoForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect('buscar_producto')
-    else:
-        form = AltaProductoForm()
-    return render(request, 'Neoprenos/alta_producto.html', {'form': form})
+        producto_id = request.POST.get('producto_id')  
+        accion = request.POST.get('accion') 
 
-# Vista para la Baja
-def baja_producto(request, id):
-    item = get_object_or_404(neoprenos, id=id)
-    if request.method == 'POST':
-        item.delete()
-        return redirect('buscar_producto')
-    return render(request, 'Neoprenos/baja_producto.html', {'item': item})
+        if accion == 'baja':
+            try:
+                producto = get_object_or_404(neoprenos, id=producto_id)  
+                producto.delete()
+                messages.success(request, "Producto eliminado correctamente.")
+            except:
+                messages.error(request, "Error: El producto con ID proporcionado no existe.")
+            return redirect('gestionarProducto') 
 
-# Vista para la Modificación
-def modificacion_producto(request, id):
-    item = get_object_or_404(neoprenos, id=id)
-    if request.method == 'POST':
-        form = ModificacionProductoForm(request.POST, instance=item)
-        if form.is_valid():
-            form.save()
-            return redirect('buscar_producto')
-    else:
-        form = ModificacionProductoForm(instance=item)
-    return render(request, 'Neoprenos/modificacion_producto.html', {'form': form, 'item': item})
+        elif accion == 'modificacion':
+            return redirect('gestionarProducto', producto_id=producto_id) 
 
+    return render(request, "Neoprenos/gestionar_Producto.html")
 
 
 

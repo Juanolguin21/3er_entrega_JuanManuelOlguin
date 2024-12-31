@@ -31,13 +31,11 @@ def login_request(request):
     return render(request, "users/login.html", {"form": form})
 
 
-# Vista de registro
 def register(request):
 
       msg_register= ""
       if request.method == 'POST':
 
-            #form = UserCreationForm(request.POST)
             form = UserRegisterForm(request.POST)
             if form.is_valid():
                   form.save()

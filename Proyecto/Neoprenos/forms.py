@@ -11,15 +11,12 @@ class BuscarProductoForm(forms.Form):
             'class': 'form-control'
         })
     )
-    
 
-    
- # Asegúrate de importar tu modelo
 
 class AltaProductoForm(forms.ModelForm):
     class Meta:
-        model = neoprenos  # Sustituye con el nombre correcto de tu modelo
-        fields = ['marca', 'modelo', 'serie', 'tipo']  # Enumera los campos que deseas incluir
+        model = neoprenos  
+        fields = ['marca', 'modelo', 'serie', 'tipo'] 
 
         widgets = {
             'marca': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Marca'}),
@@ -30,8 +27,8 @@ class AltaProductoForm(forms.ModelForm):
         
 class ModificacionProductoForm(forms.ModelForm):
     class Meta:
-        model = neoprenos  # Asegúrate de usar el modelo correcto
-        fields = ['marca', 'modelo', 'serie', 'tipo']  # Enumera los campos que deseas incluir
+        model = neoprenos  
+        fields = ['marca', 'modelo', 'serie', 'tipo']  
 
         widgets = {
             'marca': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Marca'}),

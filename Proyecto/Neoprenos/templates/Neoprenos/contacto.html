@@ -18,26 +18,22 @@
             <div class="col-lg-6">
 
                 <form id="contactForm" data-sb-form-api-token="API_TOKEN">
-                    <!-- Name input-->
                     <div class="form-floating mb-3">
                         <input class="form-control" id="name" type="text" placeholder="Enter your name..." data-sb-validations="required" />
                         <label for="name">Nombre completo</label>
                         <div class="invalid-feedback" data-sb-feedback="name:required">Se requiere nombre</div>
                     </div>
-                    <!-- Email address input-->
                     <div class="form-floating mb-3">
                         <input class="form-control" id="email" type="email" placeholder="name@example.com" data-sb-validations="required,email" />
                         <label for="email">Email </label>
                         <div class="invalid-feedback" data-sb-feedback="email:required">E-mail requerido</div>
                         <div class="invalid-feedback" data-sb-feedback="email:email">Email invalido</div>
                     </div>
-                    <!-- Phone number input-->
                     <div class="form-floating mb-3">
                         <input class="form-control" id="phone" type="tel" placeholder="(123) 456-7890" data-sb-validations="required" />
                         <label for="phone">Telefono</label>
                         <div class="invalid-feedback" data-sb-feedback="phone:required">Telefono necesario</div>
                     </div>
-                    <!-- Message input-->
                     <div class="form-floating mb-3">
                         <textarea class="form-control" id="message" type="text" placeholder="Enter your message here..." style="height: 10rem" data-sb-validations="required"></textarea>
                         <label for="message">Mensaje</label>
@@ -52,7 +48,6 @@
                         </div>
                     </div>
                     <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error envio Mensaje!</div></div>
-                    <!-- Submit Button-->
                     <div class="d-grid"><button class="btn btn-primary btn-xl disabled" id="submitButton" type="submit">Enviar</button></div>
                 </form>
             </div>

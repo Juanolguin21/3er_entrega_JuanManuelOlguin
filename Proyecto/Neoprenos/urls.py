@@ -2,7 +2,7 @@
 from django.urls import path
 from Neoprenos import views
 from . import views
-from .views import buscar_producto, gestionar_Producto
+from .views import buscar_producto, gestionar_Producto, modificar_producto
 
 
 
@@ -20,7 +20,8 @@ urlpatterns = [
 
 forms_html= [
     path('neoprenos-Formulario/', views.neoprenos_Formulario, name="neoprenosFormulario"),
-    path('gestionar-Producto/', views.gestionar_Producto, name='gestionarProducto')
+    path('gestionar-Producto/', views.gestionar_Producto, name='gestionarProducto'),
+    path('modificar_producto/<int:producto_id>/', modificar_producto, name='modificar_producto')
 ]
 
 urlpatterns += forms_html

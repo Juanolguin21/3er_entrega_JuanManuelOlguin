@@ -10,8 +10,6 @@ from .forms import AltaProductoForm, ModificacionProductoForm
 from django.contrib import messages
 
 
-
-# Create your views here.
 def inicio(request): 
     return render (request, "Neoprenos/inicio.html")
 
@@ -57,6 +55,21 @@ def buscar_producto(request):
 
     return render(request, 'Neoprenos/buscar_producto.html', {'form': form, 'resultados': resultados})
 
+@login_required
+def modificar_producto(request, producto_id):
+    producto = get_object_or_404(neoprenos, id=producto_id)
+
+    if request.method == 'POST':
+        form = ModificacionProductoForm(request.POST, instance=producto)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Producto modificado correctamente.")
+            return redirect('gestionarProducto') 
+    else:
+        form = ModificacionProductoForm(instance=producto)
+
+    return render(request, 'Neoprenos/modificar_producto.html', {'form': form, 'producto': producto})
+
 
 @login_required
 def gestionar_Producto(request):
@@ -74,8 +87,13 @@ def gestionar_Producto(request):
             return redirect('gestionarProducto') 
 
         elif accion == 'modificacion':
-            return redirect('gestionarProducto', producto_id=producto_id) 
-
+            try:
+                producto = get_object_or_404(neoprenos, id=producto_id)
+                return redirect('modificar_producto', producto_id=producto_id)  
+            except Exception as e:
+                messages.error(request, "Error: El ID del producto no es válido.")
+                return redirect('gestionarProducto')  
+        
     return render(request, "Neoprenos/gestionar_Producto.html")
 
 

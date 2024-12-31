@@ -12,7 +12,6 @@ class BuscarProductoForm(forms.Form):
         })
     )
 
-
 class AltaProductoForm(forms.ModelForm):
     class Meta:
         model = neoprenos  

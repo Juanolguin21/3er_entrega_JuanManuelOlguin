@@ -32,18 +32,19 @@ def login_request(request):
 
 
 def register(request):
+    if request.method == 'POST':
+        form = UserRegisterForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Tu cuenta ha sido creada, puedes iniciar sesión.')
+            return redirect('Login')  
+        else:
+            
+            messages.error(request, 'Por favor corrige los errores en el formulario.')
 
-      msg_register= ""
-      if request.method == 'POST':
+    else:
+        form = UserRegisterForm()
 
-            form = UserRegisterForm(request.POST)
-            if form.is_valid():
-                  form.save()
-                  return render(request,"Neoprenos/inicio.html" ,  {"mensaje":"Usuario Creado :)"})
-            msg_register= "ERROR EN LOS DATOS INGRESADOS"
-      
-      form = UserRegisterForm()     
-
-      return render(request,"users/registro.html" ,  {"form":form, "msg_register":msg_register})
+    return render(request, 'users/registro.html', {'form': form})
   
 

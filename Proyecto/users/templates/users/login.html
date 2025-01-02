@@ -31,7 +31,7 @@
     }
 
     .login__inputs {
-        max-width: 400px;  /* Ajustado para un formulario más amplio */
+        max-width: 400px; 
     }
 
     .login__inputs p {
@@ -83,6 +83,8 @@
         border-right: 2rem solid black;
         border-left: 2rem solid black;
         border-bottom: 2rem solid black;
+        border-radius: 10px;
+        padding-bottom:1rem;
     }
 
     .kiko {
@@ -101,26 +103,14 @@
         justify-content: center;
         align-items: center;
     }
-
-    /* Estilo para mensajes de error */
-    .error-message {
-        color: red;
-        margin-top: 10px;
-    }
 </style>
   
 <section>
     <div class="login__inputs">
         <p></p>    
-        <div class="container2">
-            {% if form.non_field_errors %}
-                <div class="error-message">
-                    {{ form.non_field_errors }}
-                </div>
-            {% endif %}
-            
             <form method="POST">
                 {% csrf_token %}
+                
                 {{ form.as_p }}
 
                 {% for field in form %}
@@ -130,11 +120,13 @@
                 {% endfor %}
 
                 <button type="submit">Iniciar sesión</button>
+                <p></p>
                 <a class="kiko" href="{% url 'Register' %}">Regístrate!</a>
             </form>
         </div>
         <p></p>
     </div>
 </section>
+
 
 {% endblock main %}

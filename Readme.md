@@ -17,6 +17,11 @@ Fanatico del Mar y de la naturaleza, opte por elegir este camino para la entrega
 - [Característica 8, "Bajas y modificaciones de trajes de neoprene"]
 - [Característica 9, "solo puede acceder a la modificacion/bajas/cargas/busquedas un usuario logueado"]
 - [Característica 10, "portfolio del usuario creado al presionar sobre el nombre de usuario en el nav"]
+- [Característica 11, "Pagina responsive en su totalidad"]
+- [Característica 12, "2 aplicaciones realizadas , Neoprenos y users"]
+- [Característica 13, "Mensajeria/contacto"]
+
+
 
 ---
 

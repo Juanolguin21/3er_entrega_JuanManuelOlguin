@@ -2,21 +2,20 @@
 
 {% load static %}
 
-{% block main  %}
+{% block main %}
 
 <style>
     @import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap");
 
     /* Variables de colores */
-    
     :root {
         --yellow: #a49d80;
         --blue: #e7a670;
-        --white:rgb(252, 251, 250);
-        --orange:rgb(230, 99, 43);
-        --black:#0a0a0ae7;
+        --white: rgb(252, 251, 250);
+        --orange: rgb(230, 99, 43);
+        --black: #0a0a0ae7;
         --grey:#d1cbcbdb;
-        --gren:rgb(15, 219, 206);
+        --gren: rgb(15, 219, 206);
         --bold: 900;
         --medium: 700;
         --regular: 400;
@@ -25,44 +24,39 @@
     }
 
     .container2 {
-        
         display: flex;
         justify-content: center;
         align-items: center;
         flex-direction: column;
-        align-content: center;
+    }
 
-    }
-     
     .login__inputs {
-        max-width: 100px;  
+        max-width: 400px;  /* Ajustado para un formulario más amplio */
     }
-    
+
     .login__inputs p {
         display: flex;
         flex-direction: column;
         width: 100%;
     }
-    
+
     .login__inputs label {
         color: var(--black);
         padding-bottom: 3px;
         padding-left: 10px;
         font-weight: 2rem;
-        font-family:impact;
+        font-family: impact;
     }
-    
-    
+
     .login__inputs input {
         height: 40px;
         padding: 0 20px;
         box-sizing: border-box;
         border-radius: 20px;
         color: var(--black);
-        background:white;
+        background: white;
     }
-    
-    
+
     .login__inputs button {
         width: 100%;
         height: 45px;
@@ -74,22 +68,21 @@
         font-weight: 600;
         cursor: pointer;
         transition: all 0.3s linear;
-        background:var(--black);
-        display:flex;
-        justify-content:center;
-        align-items:center;
-        }
+        background: var(--black);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 
     section {
         background: linear-gradient(to bottom, rgba(53, 57, 56, 0.8) 1%, rgba(246, 132, 50, 0.8) 80%);
-        display:flex;
-        justify-content:center;
-        align-items:center;
-        border-top:2rem solid black;
-        border-right:6rem solid black;
-        border-left:6rem solid black;
-        border-bottom:2rem solid black;
-       
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-top: 2rem solid black;
+        border-right: 2rem solid black;
+        border-left: 2rem solid black;
+        border-bottom: 2rem solid black;
     }
 
     .kiko {
@@ -102,28 +95,46 @@
         font-weight: 600;
         cursor: pointer;
         transition: all 0.3s linear;
-        background:var(--black);
-        display:flex;
+        background: var(--black);
+        display: flex;
         border-radius: 10px;
-        justify-content:center;
-        align-items:center;
+        justify-content: center;
+        align-items: center;
     }
 
-  </style>
+    /* Estilo para mensajes de error */
+    .error-message {
+        color: red;
+        margin-top: 10px;
+    }
+</style>
   
- <section>
+<section>
     <div class="login__inputs">
         <p></p>    
-       <div class="container2">
-            <form method="post">
+        <div class="container2">
+            {% if form.non_field_errors %}
+                <div class="error-message">
+                    {{ form.non_field_errors }}
+                </div>
+            {% endif %}
+            
+            <form method="POST">
                 {% csrf_token %}
                 {{ form.as_p }}
+
+                {% for field in form %}
+                    {% for error in field.errors %}
+                        <div class="error-message">{{ error }}</div>
+                    {% endfor %}
+                {% endfor %}
+
                 <button type="submit">Iniciar sesión</button>
-                <a class="kiko" href="{% url 'Register' %}">Registrate!</a>
+                <a class="kiko" href="{% url 'Register' %}">Regístrate!</a>
             </form>
-       </div>
-         <p></p>
+        </div>
+        <p></p>
     </div>
 </section>
 
-{% endblock main  %}
+{% endblock main %}

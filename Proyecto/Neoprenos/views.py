@@ -28,6 +28,9 @@ def contacto(request):
 def sucursales(request): 
     return render (request, "Neoprenos/sucursales.html")
 
+def portfolio(request): 
+    return render (request, "Neoprenos/portfolio.html")
+
 
 @login_required
 def neoprenos_Formulario(request):

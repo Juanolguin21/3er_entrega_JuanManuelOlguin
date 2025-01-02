@@ -40,7 +40,7 @@
                         {% if not request.user.is_authenticated %}
                         <li class="nav-item"><a style ="color : orange;" class="nav-link" href="{% url 'Login' %}">INICIAR SESION</a></li>
                         {% else %}
-                        <li class="nav-item"><a style="color: orange;" class="nav-link" href="#">{{ request.user.username }}</a></li>
+                        <li class="nav-item"><a style="color: orange;" class="nav-link" href="{% url 'portfolio' %}">{{ request.user.username }}</a></li>
                         <li class="nav-item">
                         <form id="logout-form" action="{% url 'Logout' %}" method="POST" style="display:inline;" onsubmit="return confirmLogout();">
                         {% csrf_token %}

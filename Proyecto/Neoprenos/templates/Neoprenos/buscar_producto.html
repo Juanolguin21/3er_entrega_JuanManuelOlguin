@@ -2,21 +2,32 @@
 
 {% load static %}
 
-{% block main  %}
+{% block main %}
 
 <style>
-    .list-group-item {
-        display: flex;
-        justify-content: space-around;
-        background-color: orange;
-        padding: 15px;
+    .table-container {
+        margin-top: 20px;
     }
-    .list-group1 {
-        display: flex;
-        justify-content: space-around;
-        background-color: grey;
-        color: white;
-        padding: 5px;
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+    th, td {
+        border: 1px solid white;
+        padding: 10px;
+        text-align: center;
+    }
+    th {
+        background: black;
+        color: orange;
+    }
+
+    td {
+        color:white;
+    }
+
+    tr {
+        background-color:black;
     }
 </style>
 
@@ -30,23 +41,32 @@
     </form>
 
     {% if resultados is not None %}
-    <h2 class="mt-4">Resultados:</h2>
+    <h2 class="mt-4 text-center">Resultados:</h2>
     {% if resultados %}
-        <ul class="list-group">
-            <li class="list-group-item">
-                <strong>ID</strong><strong>MARCA</strong><strong>MODELO</strong>
-                <strong>MEDIDA</strong><strong>TIPO</strong>
-            </li>
-            {% for producto in resultados %}
-            <li class="list-group1">
-                <span>{{ producto.id }}</span>
-                <span>{{ producto.marca }}</span>
-                <span>{{ producto.modelo }}</span>
-                <span>{{ producto.serie }}</span>
-                <span>{{ producto.tipo }}</span> 
-            </li>
-            {% endfor %}
-        </ul>
+        <div class="table-container">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Marca</th>
+                        <th>Modelo</th>
+                        <th>Medida</th>
+                        <th>Tipo</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for producto in resultados %}
+                    <tr>
+                        <td>{{ producto.id }}</td>
+                        <td>{{ producto.marca }}</td>
+                        <td>{{ producto.modelo }}</td>
+                        <td>{{ producto.serie }}</td>
+                        <td>{{ producto.tipo }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
     {% else %}
         <p class="mt-4 text-danger">No se encontraron productos.</p>
     {% endif %}

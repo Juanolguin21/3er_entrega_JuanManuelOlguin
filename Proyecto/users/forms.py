@@ -2,6 +2,8 @@ from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError
+from Neoprenos.models import UserProfile
+
 
 class UserRegisterForm(UserCreationForm):
     email = forms.EmailField(error_messages={'required': 'Este campo es obligatorio.'})
@@ -10,12 +12,11 @@ class UserRegisterForm(UserCreationForm):
     first_name = forms.CharField(label='Nombre', max_length=30, required=True, error_messages={'required': 'Este campo es obligatorio.'})
     last_name = forms.CharField(label='Apellido', max_length=30, required=True, error_messages={'required': 'Este campo es obligatorio.'})
 
-
     class Meta:
         model= User
         fields = ["username","email","password1","password2","first_name","last_name"]
         help_text = {k: "" for k in fields }
-    
+        
     def clean_email(self):
         email = self.cleaned_data.get('email')
         if User.objects.filter(email=email).exists():

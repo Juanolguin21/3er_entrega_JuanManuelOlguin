@@ -34,6 +34,11 @@ A su vez al estar logueado se puede hacer click en el usuario en la parte superi
 - [Característica 13, "Mensajeria/contacto"]
 
 
+### LA PAGINA ES RESPONSIVE EN SU TOTALIDAD
+
+### Vinculo al video de muestra de pagina
+
+https://youtu.be/mWU4tzI7TOo
 
 ---
 
@@ -65,7 +70,4 @@ usuario: Profesor32
 clave: 34519842@coder
 
 
-### Vinculo al video
-
-https://youtu.be/mWU4tzI7TOo
 

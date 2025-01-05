@@ -52,24 +52,26 @@ def register(request):
     return render(request, 'users/registro.html', {'form': form})
   
 
-
 @login_required
 def update_user(request):
     user = request.user
 
+    try:
+        profile = user.userprofile  
+    except UserProfile.DoesNotExist:
+        messages.error(request, "No se encontró el perfil asociado a este usuario.")
+        return redirect('some_default_route')  
+
     if request.method == 'POST':
         form = UserUpdateForm(request.POST, instance=user)
         if form.is_valid():
-            user = form.save(commit=False)
-            user.save()  # Guarda el usuario
-            # Actualiza el perfil del usuario según el emoticono seleccionado
-            profile = user.userprofile  # Obtiene el UserProfile
-            profile.avatar = form.cleaned_data['avatar']
-            profile.save()  # Guarda el perfil de usuario
+            user = form.save() 
+            profile.avatar = request.POST.get('avatar', profile.avatar) 
+            profile.save() 
             messages.success(request, 'Tu perfil ha sido actualizado.')
-            return redirect('portfolio')  # Redirigir a la vista del perfil
+            return redirect('portfolio')
     else:
-        form = UserUpdateForm(instance=user)  # Muestra el formulario con los datos actuales
+        form = UserUpdateForm(instance=user)
 
-    return render(request, 'users/update_user.html', {'form': form}) 
+    return render(request, 'users/update_user.html', {'form': form})
 

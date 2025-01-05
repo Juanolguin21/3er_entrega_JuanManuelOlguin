@@ -30,11 +30,8 @@ class UserUpdateForm(forms.ModelForm):
 
 
 class UserRegisterForm(UserCreationForm):
-    email = forms.EmailField(error_messages={'required': 'Este campo es obligatorio.'})
     password1 = forms.CharField(label='Contraseña', widget=forms.PasswordInput, error_messages={'required': 'Este campo es obligatorio.'})
     password2 = forms.CharField(label='Repetir Contraseña', widget=forms.PasswordInput, error_messages={'required': 'Este campo es obligatorio.'})
-    first_name = forms.CharField(label='Nombre', max_length=30, required=True, error_messages={'required': 'Este campo es obligatorio.'})
-    last_name = forms.CharField(label='Apellido', max_length=30, required=True, error_messages={'required': 'Este campo es obligatorio.'})
     avatar = forms.ChoiceField(choices=[
         ('😊', 'Sonriente'),
         ('😎', 'Con gafas de sol'),
@@ -60,9 +57,8 @@ class UserRegisterForm(UserCreationForm):
     def save(self, commit=True):
         user = super(UserRegisterForm, self).save(commit=False)
         if commit:
-            user.save()  # Guarda el usuario
-        # Verifica si un perfil ya existe antes de crear uno nuevo
+            user.save()
             profile, created = UserProfile.objects.get_or_create(user=user)
-            profile.avatar = self.cleaned_data['avatar']  # Guarda el emoticono en el perfil
-            profile.save()  # Guarda el perfil
+            profile.avatar = self.cleaned_data['avatar']  
+            profile.save()  
         return user

@@ -1,3 +1,8 @@
+# Creador del Proyecto
+
+Olguin Juan manuel unico integrante de la entrega final
+
+
 # Nombre del Proyecto
 
 NeoprenOS ----> Trajes de Neoprene Importados

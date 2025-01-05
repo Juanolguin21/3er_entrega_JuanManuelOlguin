@@ -19,7 +19,7 @@
                 <li><strong>Apellido:</strong> {{ user.last_name }}</li>
                 <li><strong>Avatar:</strong> 
                     {% if user.userprofile.avatar %}
-                        {{ user.userprofile.avatar }}  
+                        {{ user.userprofile.avatar }} 
                     {% else %}
                         Sin avatar seleccionado
                     {% endif %}
@@ -28,16 +28,20 @@
         </div>
     </div>
 </div>
-    <div class="container mt-5">
-        <a href="{% url 'update_user' %}" class="btn btn-primary">Actualizar perfil de Usuario</a>
-    </div>
-<p></p>
+<div class="container mt-5">
+    {% if messages %}
+        <div>
+            {% for message in messages %}
+                <div class="alert alert-warning">{{ message }}</div>
+            {% endfor %}
+        </div>
+    {% endif %}
 
-{% if messages %}
-<div>
-    {% for message in messages %}
-        <div class="alert alert-warning">{{ message }}</div>
-    {% endfor %}
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Actualizar Informacion de Usuario</button>  <!-- Botón para enviar -->
+    </form>
 </div>
-{% endif %}
+<p></p>
 {% endblock main  %}

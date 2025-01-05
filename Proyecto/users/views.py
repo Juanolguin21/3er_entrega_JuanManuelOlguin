@@ -3,6 +3,10 @@ from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login, authenticate
 from django.contrib import messages
 from users.forms import UserRegisterForm  
+from .forms import UserUpdateForm
+from django.contrib.auth.decorators import login_required
+from Neoprenos.models import UserProfile
+
 
 
 def login_request(request):
@@ -47,4 +51,25 @@ def register(request):
 
     return render(request, 'users/registro.html', {'form': form})
   
+
+
+@login_required
+def update_user(request):
+    user = request.user
+
+    if request.method == 'POST':
+        form = UserUpdateForm(request.POST, instance=user)
+        if form.is_valid():
+            user = form.save(commit=False)
+            user.save()  # Guarda el usuario
+            # Actualiza el perfil del usuario según el emoticono seleccionado
+            profile = user.userprofile  # Obtiene el UserProfile
+            profile.avatar = form.cleaned_data['avatar']
+            profile.save()  # Guarda el perfil de usuario
+            messages.success(request, 'Tu perfil ha sido actualizado.')
+            return redirect('portfolio')  # Redirigir a la vista del perfil
+    else:
+        form = UserUpdateForm(instance=user)  # Muestra el formulario con los datos actuales
+
+    return render(request, 'users/update_user.html', {'form': form}) 
 

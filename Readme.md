@@ -38,8 +38,7 @@ A su vez al estar logueado se puede hacer click en el usuario en la parte superi
 
 ### Vinculo al video de muestra de pagina
 
-https://youtu.be/mWU4tzI7TOo
-
+https://youtu.be/PZuIbdlqctc
 ---
 
 ## Instalación
